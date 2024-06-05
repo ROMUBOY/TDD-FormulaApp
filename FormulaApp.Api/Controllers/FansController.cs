@@ -1,5 +1,7 @@
-﻿using FormulaApp.Api.Services.Interfaces;
+﻿using FormulaApp.Api.Configuration;
+using FormulaApp.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace FormulaApp.Api.Controllers
 {
@@ -8,10 +10,11 @@ namespace FormulaApp.Api.Controllers
     public class FansController : ControllerBase
     {
         private readonly IFanService _fanService;
-
+        
+                
         public FansController(IFanService fanService)
         {
-            _fanService = fanService;
+            _fanService = fanService;            
         }
 
         [HttpGet(Name = "GetFans")]

@@ -1,3 +1,4 @@
+using FormulaApp.Api.Configuration;
 using FormulaApp.Api.Services;
 using FormulaApp.Api.Services.Interfaces;
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFanService, FanService>();
 builder.Services.AddHttpClient<IFanService, FanService>();
+builder.Services.Configure<ApiServiceConfig>(builder.Configuration.GetSection("ApiServiceConfig"));
 
 var app = builder.Build();
 
