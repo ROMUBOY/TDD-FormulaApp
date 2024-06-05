@@ -17,7 +17,14 @@ namespace FormulaApp.Api.Controllers
         [HttpGet(Name = "GetFans")]
         public async Task<IActionResult> Get()
         {
-            return Ok("fans");
+            var fans = await _fanService.GetAllFans();
+
+            if (fans.Any()) 
+            {
+                return Ok(fans);
+            }
+
+            return NotFound();
         }
     }
 }
